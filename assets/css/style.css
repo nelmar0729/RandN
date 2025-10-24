@@ -1,0 +1,197 @@
+
+        :root {
+            --brand-primary: #4C60DA;
+            --brand-accent: #21ADD7;
+            --radius-2xl: 1.25rem;
+        }
+
+        /* THEME TOKENS */
+        [data-bs-theme="dark"] {
+            color-scheme: dark;
+            --bg: #0b1020;
+            --ink: #e2e8f0;
+            --muted: #9aa7bd;
+            --surface: rgba(255, 255, 255, .04);
+            --border: rgba(255, 255, 255, .10);
+            --navbar-bg: rgba(15, 23, 42, .55);
+            --badge-bg: rgba(76, 96, 218, .18);
+            --badge-br: rgba(76, 96, 218, .35);
+            --badge-fg: #cfe3ff;
+        }
+
+        [data-bs-theme="light"] {
+            color-scheme: light;
+            --bg: #f8fafc;
+            --ink: #0f172a;
+            --muted: #475569;
+            --surface: #ffffff;
+            --border: rgba(2, 6, 23, .10);
+            --navbar-bg: rgba(255, 255, 255, .80);
+            --badge-bg: rgba(76, 96, 218, .10);
+            --badge-br: rgba(76, 96, 218, .25);
+            --badge-fg: #1e293b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(1200px 600px at -10% -20%, color-mix(in oklab, var(--brand-primary) 20%, transparent), transparent 60%),
+                radial-gradient(900px 500px at 110% 10%, color-mix(in oklab, var(--brand-accent) 14%, transparent), transparent 60%),
+                var(--bg);
+            color: var(--ink);
+        }
+
+        /* NAVBAR driven by CSS vars (no navbar-dark/light needed) */
+        .navbar {
+            backdrop-filter: blur(8px);
+            background: var(--navbar-bg) !important;
+            border-bottom: 1px solid var(--border);
+            --bs-navbar-color: color-mix(in srgb, var(--ink) 80%, transparent);
+            --bs-navbar-hover-color: var(--ink);
+            --bs-navbar-brand-color: var(--ink);
+            --bs-navbar-brand-hover-color: var(--ink);
+            --bs-navbar-toggler-border-color: color-mix(in srgb, var(--ink) 35%, transparent);
+        }
+
+        /* Toggler icon color per theme */
+        [data-bs-theme="dark"] .navbar {
+            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        [data-bs-theme="light"] .navbar {
+            --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(15,23,42,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .btn-brand {
+            --bs-btn-bg: var(--brand-primary);
+            --bs-btn-border-color: var(--brand-primary);
+            --bs-btn-hover-bg: #4052c6;
+            --bs-btn-hover-border-color: #4052c6;
+            --bs-btn-color: #fff;
+        }
+
+        .badge-tech {
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-br);
+            color: var(--badge-fg);
+            padding: .45rem .65rem;
+            border-radius: 999px;
+            font-weight: 500;
+            margin: .15rem .25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .85rem;
+        }
+
+        .hero {
+            position: relative;
+            overflow: clip;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-name {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            background: linear-gradient(90deg, #4C60DA, #21ADD7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-name .lastname {
+            background: linear-gradient(90deg, #21ADD7, #4C60DA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(90deg, #4C60DA, #21ADD7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 2.4rem;
+            }
+        }
+
+
+
+        .card.project,
+        .contact-card,
+        .modal-content {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .card.project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+            border-color: color-mix(in srgb, var(--brand-primary) 45%, var(--border));
+        }
+
+        .project-thumb {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-top-left-radius: var(--radius-2xl);
+            border-top-right-radius: var(--radius-2xl);
+            border-bottom: 1px solid var(--border);
+            background: #0b1020;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 1rem;
+            padding-left: 1.25rem;
+            border-left: 2px dashed color-mix(in srgb, var(--ink) 18%, transparent);
+        }
+
+        .timeline .dot {
+            width: .85rem;
+            height: .85rem;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            border-radius: 999px;
+            position: absolute;
+            left: -0.5rem;
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-primary) 20%, transparent);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            font-size: .82rem;
+            color: color-mix(in srgb, var(--ink) 65%, transparent);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 999px;
+            border: 2px solid color-mix(in srgb, var(--ink) 18%, transparent);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        /* Utility for focus */
+        .focus-ring:focus {
+            outline: 3px solid var(--brand-accent);
+            outline-offset: 2px;
+        }
